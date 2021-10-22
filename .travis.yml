@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run -e CI=true vidhusharma/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ca-central-1"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-ca-central-1-399897120110"
+  bucket_path: "docker-react"
+  on:
+    branch: master
